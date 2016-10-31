@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzT-yn-90W">
-                                <rect key="frame" x="0.0" y="205" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="213" width="375" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-YW-pCh">
                                         <rect key="frame" x="8" y="2" width="359" height="36"/>
@@ -66,10 +66,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zgm-p1-Esg">
-                                <rect key="frame" x="0.0" y="245" width="375" height="422"/>
+                                <rect key="frame" x="0.0" y="253" width="375" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="Ziv-HZ-xYo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyCell" rowHeight="85" id="Ziv-HZ-xYo" customClass="PartyCell" customModule="PartyRockApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ziv-HZ-xYo" id="ENg-Yd-Neb">
@@ -101,11 +101,15 @@
                                                 <constraint firstItem="RDj-rn-7kr" firstAttribute="centerY" secondItem="ENg-Yd-Neb" secondAttribute="centerY" id="xaX-jS-2b3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoPreviewImage" destination="RDj-rn-7kr" id="o3C-9d-jrK"/>
+                                            <outlet property="videoTitle" destination="vHn-1w-yir" id="sfs-rh-dSu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partybanner" translatesAutoresizingMaskIntoConstraints="NO" id="ZhX-k9-vvK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="185"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="185"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="185" id="DMK-xr-WCu"/>
                                 </constraints>
@@ -114,7 +118,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Zgm-p1-Esg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0lY-Cl-B7j"/>
-                            <constraint firstItem="ZhX-k9-vvK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4IQ-n1-e80"/>
+                            <constraint firstItem="ZhX-k9-vvK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="4IQ-n1-e80"/>
                             <constraint firstItem="XzT-yn-90W" firstAttribute="top" secondItem="ZhX-k9-vvK" secondAttribute="bottom" id="KmM-qx-X2e"/>
                             <constraint firstAttribute="trailing" secondItem="ZhX-k9-vvK" secondAttribute="trailing" id="U0H-BZ-Bi6"/>
                             <constraint firstAttribute="trailing" secondItem="Zgm-p1-Esg" secondAttribute="trailing" id="Ulp-mC-7yP"/>
@@ -126,6 +130,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="Zgm-p1-Esg" id="d0R-9X-yG3"/>
                         <segue destination="qrb-lq-EQc" kind="showDetail" identifier="videoVC" id="bWn-Q3-7WH"/>
                     </connections>
                 </viewController>
@@ -146,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3io-B2-lA1">
-                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="VeR-vA-qpm"/>
@@ -155,7 +160,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3io-B2-lA1" firstAttribute="top" secondItem="c5F-H9-MpB" secondAttribute="bottom" id="plD-8c-Vir"/>
+                            <constraint firstItem="3io-B2-lA1" firstAttribute="top" secondItem="c5F-H9-MpB" secondAttribute="bottom" constant="8" id="plD-8c-Vir"/>
                             <constraint firstAttribute="trailing" secondItem="3io-B2-lA1" secondAttribute="trailing" id="vlr-9d-sOP"/>
                             <constraint firstItem="3io-B2-lA1" firstAttribute="leading" secondItem="UX6-sx-hCk" secondAttribute="leading" id="whL-Zh-yKp"/>
                         </constraints>

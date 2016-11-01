@@ -16,12 +16,21 @@ class PartyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func updateUI(partyRock: PartyRock){
         videoTitle.text = partyRock.videoTitle
-//        TODO: Set image from url
+        let url = URL(string: partyRock.imageUrl)!
+        DispatchQueue.global().async {
+            do {
+                let data = try Data(contentsOf: url)
+                DispatchQueue.global().sync {
+                    self.videoPreviewImage.image = UIImage(data: data)
+                }
+            }catch{
+                print("Something went wrong downloading the image")
+            }
+        }
     }
-
+    
 }
